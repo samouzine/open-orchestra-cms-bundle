@@ -40,7 +40,7 @@ class NavigationPanelManager
             $this->strategies[$parent] = $weightedStrategies;
         }
 
-        return $this->templateEngine->render('OpenOrchestraBackofficeBundle:BackOffice/Include/NavigationPanel:show.html.twig', array(
+        return $this->templateEngine->render('/open-orchestra/backoffice-bundle/BackOffice/Include/NavigationPanel/show.html.twig', array(
             'strategies' => $this->strategies
         ));
     }

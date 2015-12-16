@@ -1,0 +1,7 @@
+{
+  "version": "1.0",
+  "name": "open-orchestra/open-orchestra-cms-bundle",
+  "path-mappings": {
+    "/open-orchestra/backoffice-bundle": "BackofficeBundle/Resources/views/"
+  }
+}
