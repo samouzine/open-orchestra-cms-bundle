@@ -1,13 +1,8 @@
 ###*
- * @namespace OpenOrchestra:TemplateFlex
-###
-window.OpenOrchestra or= {}
-window.OpenOrchestra.TemplateFlex or= {}
-
-###*
+ * @namespace OpenOrchestra:PageModule.View
  * @class TemplateFlexView
 ###
-class OpenOrchestra.TemplateFlex.TemplateFlexView extends OrchestraView
+class OpenOrchestra.PageModule.View.TemplateFlexView extends OrchestraView
 
   ###*
    * required options
@@ -19,31 +14,28 @@ class OpenOrchestra.TemplateFlex.TemplateFlexView extends OrchestraView
    * @param {Object} options
   ###
   initialize: (options) ->
-    @options = @reduceOption(options, [
-      'template'
-      'domContainer'
-    ])
-    @options.configuration = @options.template
+    #@options.configuration = @options.template
+    @options = {}
     @options.entityType = 'template-flex'
     @loadTemplates [
       "OpenOrchestraBackofficeBundle:BackOffice:Underscore/templateFlex/templateFlexView"
     ]
-    OpenOrchestra.AreaFlex.Channel.bind 'activateSortableArea', @showOverlaySortableArea, @
-    OpenOrchestra.AreaFlex.Channel.bind 'disableSortableArea', @hideOverlaySortableArea, @
+    #OpenOrchestra.AreaFlex.Channel.bind 'activateSortableArea', @showOverlaySortableArea, @
+    #OpenOrchestra.AreaFlex.Channel.bind 'disableSortableArea', @hideOverlaySortableArea, @
     return
 
   ###*
-   * Render template
+   * Render
   ###
   render: ->
-    @setElement @renderTemplate('OpenOrchestraBackofficeBundle:BackOffice:Underscore/templateFlex/templateFlexView',
-      template: @options.template
-    )
-    @options.domContainer.html @$el
-    $('.js-widget-title', @$el).html $('#generated-title', @$el).html()
-    @addArea($('.template-flex-container', @$el), @options.template.get('area'))
-    ##@addConfigurationButton()
-    return
+    console.log "render"
+    @setElement @renderTemplate('OpenOrchestraBackofficeBundle:BackOffice:Underscore/templateFlex/templateFlexView')
+    return @
+
+  renderTemplateFlex: (template) ->
+    console.log $('.template-flex-container', @$el)
+    console.log template.get('area')
+    @addArea($('.template-flex-container', @$el), template.get('area'))
 
   ###*
    * @param {Object} container Jquery selector
@@ -62,12 +54,13 @@ class OpenOrchestra.TemplateFlex.TemplateFlexView extends OrchestraView
   ###*
    * Add button configuration page
   ###
-  addConfigurationButton: () ->
+  ###addConfigurationButton: () ->
     pageConfigurationButtonViewClass = appConfigurationView.getConfiguration(@options.entityType, 'addConfigurationButton')
     new pageConfigurationButtonViewClass(@addOption(
       viewContainer: @
       widget_index: 2
     ))
+  ###
 
   ###*
    * Hide overlay on area

@@ -149,7 +149,14 @@ module.exports = {
     'web/built/openorchestrabackoffice/js/formBehavior/TagCondition.js',
     'web/built/openorchestrabackoffice/js/formBehavior/TagCreator.js',
     'web/built/openorchestrabackoffice/js/formBehavior/ValidateHidden.js',
-    
+
+    // POC
+    'web/built/openorchestrabackoffice/js/page-flex-module/PageModule.js',
+    'web/built/openorchestrabackoffice/js/page-flex-module/Router/TemplateFlexRouter.js',
+    'web/built/openorchestrabackoffice/js/page-flex-module/Controller/TemplateFlexController.js',
+    'web/built/openorchestrabackoffice/js/page-flex-module/Model/TemplatFlexModel.js',
+    'web/built/openorchestrabackoffice/js/page-flex-module/View/TemplateFlexView.js',
+    'web/built/openorchestrabackoffice/js/App.js'
   ],
   dest: 'web/built/orchestra.js'
 };
