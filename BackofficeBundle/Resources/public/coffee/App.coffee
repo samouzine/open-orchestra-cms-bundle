@@ -9,23 +9,27 @@ window.OpenOrchestra or= {}
 class OpenOrchestra.App
 
   ###*
-   * @param {Object} options
+   * Constructor App
   ###
-  constructor: (@options) ->
-    console.log "init app"
+  constructor: () ->
+    @appContainer = intravenous.create()
 
   ###*
    * Start application
   ###
   start: () ->
-    new OpenOrchestra.PageModule.OrchestraPageModule({
-      container: $("#content")
-    }).start()
+    OpenOrchestra.PageModule.OrchestraPageModule.$inject = ["container"]
+    @appContainer.register("page_module", OpenOrchestra.PageModule.OrchestraPageModule, "singleton")
+    @appContainer.get("page_module", {containerHtml : $("#content") }).start()
+
+    # Test override service
+    #OpenOrchestra.PageModule.Router.TemplateFlexRouterOverride.$inject = ["page_module.controller.templateFlexController"]
+    #@appContainer.get("page_module").getContainer().register("page_module.router.templateRouter", OpenOrchestra.PageModule.Router.TemplateFlexRouterOverride, "singleton")
 
 jQuery ->
   console.log "init"
-  if window.location.pathname.indexOf('login') == -1
-    app = new OpenOrchestra.App()
-    app.start()
-    Backbone.history.start()
+  app = new OpenOrchestra.App()
+  app.start()
+  Backbone.history.start()
+  console.log Backbone.history
   return

@@ -2,15 +2,7 @@
  * @namespace OpenOrchestra:PageModule.Controller
  * @class TemplateFlexController
 ###
-class OpenOrchestra.PageModule.Controller.TemplateFlexController
-
-  ###*
-   * @param {Object} router
-   * @param {Object} router
-  ###
-  constructor: (router, templateFlexView) ->
-    @router = router
-    @templateFlexView = templateFlexView
+class OpenOrchestra.PageModule.Controller.TemplateFlexController extends OpenOrchestra.Common.OrchestraController
 
   ###*
    * Show template
@@ -18,12 +10,9 @@ class OpenOrchestra.PageModule.Controller.TemplateFlexController
    * @param {string} templateId
   ###
   showTemplateFlex: (templateId) ->
-    ## get Data
-    ## start view
-    console.log templateId
     context = @
     templateFlex = new OpenOrchestra.PageModule.Model.TemplateFlexModel({template_id: templateId})
     templateFlex.fetch(
-      success: (model, response, options) ->
-        context.templateFlexView.renderTemplateFlex(model)
+      success: (model) ->
+        context.container.get("page_module.view.templateFlexView").renderTemplateFlex(model)
     )

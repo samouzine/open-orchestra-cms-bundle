@@ -33,8 +33,7 @@ class OpenOrchestra.PageModule.View.TemplateFlexView extends OrchestraView
     return @
 
   renderTemplateFlex: (template) ->
-    console.log $('.template-flex-container', @$el)
-    console.log template.get('area')
+    console.log "renderTemplateFlex"
     @addArea($('.template-flex-container', @$el), template.get('area'))
 
   ###*
