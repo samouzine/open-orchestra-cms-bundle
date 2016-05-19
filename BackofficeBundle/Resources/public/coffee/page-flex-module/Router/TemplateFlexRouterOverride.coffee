@@ -1,6 +1,6 @@
 ###*
  * @namespace OpenOrchestra:PageModule.View
- * @class TemplateFlexRouter
+ * @class TemplateFlexRouterOverride
 ###
 class OpenOrchestra.PageModule.Router.TemplateFlexRouterOverride extends Backbone.Router
 
@@ -8,7 +8,7 @@ class OpenOrchestra.PageModule.Router.TemplateFlexRouterOverride extends Backbon
     'template-flex-poc/show/:templateId': 'showTemplateFlex',
   }
 
-  constructor: (templateFlexController) ->
+  initialize: (templateFlexController) ->
     @templateFlexController = templateFlexController
 
   ###*

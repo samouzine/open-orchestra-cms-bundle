@@ -8,8 +8,9 @@ class OpenOrchestra.PageModule.Router.TemplateFlexRouter extends Backbone.Router
     'template-flex-poc/show/:templateId': 'showTemplateFlex',
   }
 
-  constructor: (templateFlexController) ->
+  initialize: (templateFlexController) ->
     console.log "base router"
+    console.log templateFlexController
     @templateFlexController = templateFlexController
 
   ###*

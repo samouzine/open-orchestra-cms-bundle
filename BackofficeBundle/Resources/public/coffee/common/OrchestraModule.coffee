@@ -14,13 +14,5 @@ class OpenOrchestra.Common.OrchestraModule
   *
   * @param {object] AppContainer
   ###
-  constructor: (AppContainer, parameters) ->
-    @container = AppContainer.create();
-    @parameters = parameters
-    @build()
-
-  ###*
-  * @return {object] AppContainer
-  ###
-  getContainer: () ->
-      return @container
+  constructor: (AppContainer) ->
+    @container = AppContainer
