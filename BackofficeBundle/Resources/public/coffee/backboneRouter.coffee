@@ -2,7 +2,7 @@ OrchestraBORouter = Backbone.Router.extend(
   routePatterns: {}
 
   routes: {
-    #'*path': 'showHome'
+    '*path': 'showHome'
   }
 
   initialize: ->
@@ -106,7 +106,7 @@ OrchestraBORouter = Backbone.Router.extend(
 appRouter = new OrchestraBORouter
 
 jQuery ->
-  ##console.log "init"
+  ##console.log "history start by App"
   ##if window.location.pathname.indexOf('login') == -1
     ##console.log 'start'
     ##Backbone.history.start()

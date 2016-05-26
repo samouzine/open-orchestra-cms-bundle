@@ -15,7 +15,7 @@ module.exports = {
     'web/bundles/openorchestrabackoffice/js/intravenous.js',
     'vendor/bower_components/jquery-tokeninput/build/jquery.tokeninput.min.js',
     'vendor/bower_components/backbone.babysitter/lib/backbone.babysitter.min.js',
-    'vendor/bower_components/marionette/lib/backbone.marionette.min.js'
+    'vendor/bower_components/backbone.marionette/lib/backbone.marionette.min.js'
   ],
   dest: 'web/built/lib.js'
 };

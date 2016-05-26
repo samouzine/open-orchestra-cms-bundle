@@ -155,6 +155,9 @@ module.exports = {
     'web/built/openorchestrabackoffice/js/common/OrchestraModule.js',
     'web/built/openorchestrabackoffice/js/common/OrchestraController.js',
 
+    // --[ REGIONS ]--//
+    'web/built/openorchestrabackoffice/js/regions/ContentRegion.js',
+
     //--[ MODULE PAGE ]--//
     'web/built/openorchestrabackoffice/js/page-flex-module/PageModule.js',
     'web/built/openorchestrabackoffice/js/page-flex-module/Router/TemplateFlexRouter.js',

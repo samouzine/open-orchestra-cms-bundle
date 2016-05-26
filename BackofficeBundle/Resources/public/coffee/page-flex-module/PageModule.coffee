@@ -13,24 +13,22 @@ window.OpenOrchestra.PageModule = {
 ###*
  * @class PageModule
 ###
-class OpenOrchestra.PageModule.OrchestraPageModule extends OpenOrchestra.Common.OrchestraModule
+class OpenOrchestra.PageModule.OrchestraPageModule extends Marionette.Module
+
+  startWithParent: false
 
   ###*
-   * Build Module
+  * @param {string} moduleName
+  * @param {object} app
+  * @param {object} options
   ###
-  build: () ->
-    # Voir pour supprimer le singleton
-    @container.register("page_module.view.templateFlexView", OpenOrchestra.PageModule.View.TemplateFlexView)
+  initialize: (moduleName, app, options) ->
+    app.container.register("page_module.view.templateFlexView", OpenOrchestra.PageModule.View.TemplateFlexView)
+    app.container.register("page_module.model.templateFlexModel", OpenOrchestra.PageModule.Model.TemplateFlexModel)
 
-    @container.register("page_module.controller.templateFlexController", OpenOrchestra.PageModule.Controller.TemplateFlexController, "singleton")
-    @container.get("page_module.controller.templateFlexController").setContainer(@container)
+    app.container.register("page_module.controller.templateFlexController", OpenOrchestra.PageModule.Controller.TemplateFlexController, "singleton")
+    app.container.get("page_module.controller.templateFlexController").setContainer(app.container)
 
     OpenOrchestra.PageModule.Router.TemplateFlexRouter.$inject = ["page_module.controller.templateFlexController"]
-    @container.register("page_module.router.templateRouter", OpenOrchestra.PageModule.Router.TemplateFlexRouter, "singleton")
-
-  ###*
-   * Start module
-  ###
-  start: (containerHtml) ->
-    @container.get("page_module.router.templateRouter")
-    containerHtml.html @container.get("page_module.view.templateFlexView").render().el
+    app.container.register("page_module.router.templateRouter", OpenOrchestra.PageModule.Router.TemplateFlexRouter, "singleton")
+    app.container.get("page_module.router.templateRouter")

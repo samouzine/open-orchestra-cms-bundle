@@ -2,21 +2,18 @@
  * @namespace OpenOrchestra:PageModule.View
  * @class TemplateFlexRouter
 ###
-class OpenOrchestra.PageModule.Router.TemplateFlexRouter extends Backbone.Router
+class OpenOrchestra.PageModule.Router.TemplateFlexRouter extends Marionette.AppRouter
 
-  routes: {
+  appRoutes: {
     'template-flex-poc/show/:templateId': 'showTemplateFlex',
   }
 
-  initialize: (templateFlexController) ->
-    console.log "base router"
-    console.log templateFlexController
-    @templateFlexController = templateFlexController
-
   ###*
-   * Show template
+   * Constructor
    *
-   * @param {string} templateId
+   * @param {object} templateFlexController
   ###
-  showTemplateFlex: (templateId) ->
-    @templateFlexController.showTemplateFlex(templateId)
+  constructor: (templateFlexController) ->
+    super(
+      controller: templateFlexController
+    )

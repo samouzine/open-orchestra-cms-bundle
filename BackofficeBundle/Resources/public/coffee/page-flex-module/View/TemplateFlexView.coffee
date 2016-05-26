@@ -8,14 +8,12 @@ class OpenOrchestra.PageModule.View.TemplateFlexView extends OrchestraView
    * required options
    * {
    *   template: {object}
-   *   domContainer: {object}
    * }
    *
    * @param {Object} options
   ###
   initialize: (options) ->
-    #@options.configuration = @options.template
-    @options = {}
+    @options = options || {};
     @options.entityType = 'template-flex'
     @loadTemplates [
       "OpenOrchestraBackofficeBundle:BackOffice:Underscore/templateFlex/templateFlexView"
@@ -30,11 +28,7 @@ class OpenOrchestra.PageModule.View.TemplateFlexView extends OrchestraView
   render: ->
     console.log "render"
     @setElement @renderTemplate('OpenOrchestraBackofficeBundle:BackOffice:Underscore/templateFlex/templateFlexView')
-    return @
-
-  renderTemplateFlex: (template) ->
-    console.log "renderTemplateFlex"
-    @addArea($('.template-flex-container', @$el), template.get('area'))
+    @addArea($('.template-flex-container', @$el), @options.template.get('area'))
 
   ###*
    * @param {Object} container Jquery selector
